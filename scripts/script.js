@@ -3,7 +3,10 @@ const dino = document.querySelector('.dino');
 let position = 0;
 
 function jump(){
-  setInterval(() => {
+  let upInterval = setInterval(() => {
+    if(position >= 150){
+      clearInterval(upInterval);
+    }
     position += 20;
     dino.style.bottom = position + 'px';
 
