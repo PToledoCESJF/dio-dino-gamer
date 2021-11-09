@@ -42,11 +42,17 @@ function handleKeyUp(event) {
 
 function createCactus(){
   const cactus = document.createElement('div');
-  let cactusPosition = 0;
+  let cactusPosition = 1000;
 
   cactus.classList.add('cactus');
   background.appendChild(cactus);
-  cactus.style.right = cactusPosition + 'px';
+  cactus.style.left = cactusPosition + 'px';
+
+  setInterval(() => {
+    cactusPosition -= steps;
+    cactus.style.left = cactusPosition + 'px';
+      
+  }, velocity)
 }
 
 
