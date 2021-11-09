@@ -1,21 +1,35 @@
 const dino = document.querySelector('.dino');
 
 let position = 0;
+const steps = 10;
+const velocity = 20;
 
-function jump(){
+function jump() {
   let upInterval = setInterval(() => {
-    if(position >= 150){
+    if (position >= 150) {
       clearInterval(upInterval);
+      down();
     }
-    position += 20;
+    position += steps;
     dino.style.bottom = position + 'px';
 
-  }, 20)
+  }, velocity)
+}
+
+function down() {
+  let downInterval = setInterval(() => {
+    if (position <= 0) {
+      clearInterval(downInterval);
+    } else {
+      position -= steps;
+      dino.style.bottom = position + 'px';
+    }
+  }, velocity)
 }
 
 
-function handleKeyUp(event){
-  if(event.keyCode === 32){
+function handleKeyUp(event) {
+  if (event.keyCode === 32) {
     jump();
   }
 }
