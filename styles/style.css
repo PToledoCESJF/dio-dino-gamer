@@ -4,8 +4,10 @@ body {
 
 .dino {
   position: absolute;
-  bottom: 20px;
+  bottom: 0;
+  margin: 20px;
   background-color: blue;
   width: 60px;
   height: 60px;
 }
+
